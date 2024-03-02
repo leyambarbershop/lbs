@@ -1,0 +1,24 @@
+---
+title: Damen
+layout: default
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>((page.title))</title>
+</head>
+<body>
+{% for file in site.static_files %}
+{% assign pageurl = page.url | replace: 'damen.html', '' %}
+{% if file.path contains pageurl %}
+{% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.JPG' or file.extname == '.JPEG' %}
+<div class="image-container">
+<img class="image" src="{{ file.path }}" />
+</div>
+{% endif %}
+{% endif %}
+{% endfor %}
+</body>
+</html>
