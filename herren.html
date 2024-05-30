@@ -12,10 +12,13 @@ layout: default
 <body>
 {% for file in site.static_files %}
 {% assign pageurl = page.url | replace: 'herren.html', '' %}
-{% if file.path contains pageurl %}
-{% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.JPG' or file.extname == '.JPEG' %}
+{% if file.path contains '/assets/images/herren' %}
+{% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.JPG' or file.extname
+== '.JPEG' or file.extname == '.webp' %}
 <div class="image-container">
-<img class="image" src="{{site.baseurl}}{{file.path }}" />
+  <div class="image-frame">
+    <img class="image" src="{{site.baseurl}}{{file.path}}" />
+  </div>
 </div>
 {% endif %}
 {% endif %}
