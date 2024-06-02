@@ -3,9 +3,24 @@ layout: default
 title: Leyam Barbershop
 ---
 <!DOCTYPE html>
-<html>
-  <head>
-  </head>
-  <body>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>((page.title))</title>
+</head>
+<body>
+{% for file in site.static_files %}
+{% assign pageurl = page.url | replace: 'herren.html', '' %}
+{% if file.path contains '/assets/images/herren' %}
+{% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.JPG' or file.extname
+== '.JPEG' or file.extname == '.webp' %}
+<div class="image-container">
+  <div class="image-frame">
+    <img class="image" src="{{site.baseurl}}{{file.path}}" />
+  </div>
+</div>
+{% endif %}
+{% endif %}
+{% endfor %}
+</body>
 </html>
