@@ -1,0 +1,27 @@
+---
+title: Bärte
+layout: default
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>((page.title))</title>
+</head>
+<body>
+{% for file in site.static_files %}
+{% assign pageurl = page.url | replace: 'baerte.html', '' %}
+{% if file.path contains '/assets/images/baerte' %}
+{% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.JPG' or file.extname
+== '.JPEG' or file.extname == '.webp' %}
+<div class="image-container">
+  <div class="image-frame">
+    <img class="image" src="{{site.baseurl}}{{file.path}}" />
+  </div>
+</div>
+{% endif %}
+{% endif %}
+{% endfor %}
+</body>
+</html>
